@@ -2717,7 +2717,10 @@ html, body {
   margin-top: 4px;
 }
 .github-link:hover {
-  background: #0055fe;
+  background: none !important;
+}
+.github-link:hover img {
+  filter: grayscale(1) brightness(0.5) !important;
 }
 .github-link img {
   width: 22px;
