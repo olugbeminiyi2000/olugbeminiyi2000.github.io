@@ -7,53 +7,43 @@
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/emmanuels-portfolio-35c9fa.webflow.css" rel="stylesheet" type="text/css">
+  <link href="css/about.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
   <link href="images/favicon.svg" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.svg" rel="apple-touch-icon">
 </head>
-<body class="body" style="background-color:#f7f8fa; font-family: 'Open Sans', sans-serif;">
-  <div data-wf--nav-bar--variant="base">
-    <div class="navbar-no-shadow-container w-nav">
-      <div class="container-regular container">
-        <div class="navbar-wrapper">
-          <a href="index.html" class="navbar-brand w-nav-brand">
-            <div class="text-block-7">Emmanuel Obolo</div>
-            <div class="text-block-9">Software Engineer (ML)</div>
-          </a>
-          <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
-            <ul role="list" class="nav-menu w-list-unstyled">
-              <li class="list-item"><a href="about.html" class="nav-link w--current">About Me</a></li>
-              <li class="list-item">
-                <div class="nav-dropdown w-dropdown">
-                  <div class="nav-dropdown-toggle w-dropdown-toggle">
-                    <div class="nav-dropdown-icon w-icon-dropdown-toggle"></div>
-                    <div class="text-block-10">Projects</div>
-                  </div>
-                  <nav class="nav-dropdown-list shadow-three mobile-shadow-hide w-dropdown-list">
-                    <a href="life-prescriber.html" class="nav-dropdown-link w-dropdown-link">Life Prescriber</a>
-                    <a href="campus-cart.html" class="nav-dropdown-link w-dropdown-link">Campus Cart</a>
-                    <a href="collab-u.html" class="nav-dropdown-link w-dropdown-link">Collab-U</a>
-                  </nav>
-                </div>
-              </li>
-            </ul>
-          </nav>
-          <div class="menu-button w-nav-button">
-            <div class="w-icon-nav-menu"></div>
+<body class="body">
+  <header class="about-header">
+    <div class="about-header__container">
+      <div class="about-header__brand">
+        <a href="index.html" class="about-header__name">Emmanuel Obolo</a>
+        <span class="about-header__subtitle">Software Engineer (ML)</span>
+      </div>
+      <nav class="about-header__nav" aria-label="Main Navigation">
+        <a href="index.html" class="about-header__link about-header__link--active">Home</a>
+        <div class="about-header__dropdown" tabindex="0">
+          <button class="about-header__dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <span>Projects</span>
+            <svg class="about-header__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left:6px;"><path d="M7 10l5 5 5-5" stroke="#232b36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="about-header__dropdown-list">
+            <a href="life-prescriber.html" class="about-header__dropdown-link">Life Prescriber</a>
+            <a href="campus-cart.html" class="about-header__dropdown-link">Campus Cart</a>
+            <a href="collab-u.html" class="about-header__dropdown-link">Collab-U</a>
           </div>
         </div>
-      </div>
+      </nav>
     </div>
-  </div>
+  </header>
   <section class="section about-section">
     <div class="w-layout-blockcontainer container w-container">
       <div class="w-layout-vflex about-main">
-        <div style="display:flex;align-items:center;gap:32px;margin-bottom:24px;">
-          <img src="images/DSC_0051.JPG" alt="Emmanuel Obolo" style="width:120px;height:120px;object-fit:cover;border-radius:50%;box-shadow:0 2px 12px 0 rgba(96,125,139,0.10);">
-          <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;">
-            <h1 class="heading-1" style="margin-bottom:0;">Emmanuel Obolo</h1>
-            <a href="EOBOLO-Resume.pdf" download class="portfolio-buttons" style="margin-top:0;display:inline-block;background:#9f6c49;color:#fff;text-decoration:none;font-size:14px;padding:7px 18px;min-width:0;min-height:0;">Download CV</a>
+        <div class="about-profile-center">
+          <img src="images/DSC_0051.JPG" alt="Emmanuel Obolo" class="about-profile-img">
+          <div class="about-profile-info">
+            <h1 class="heading-1">Emmanuel Obolo</h1>
+            <a href="EOBOLO-Resume.pdf" download class="portfolio-buttons">Download CV</a>
           </div>
         </div>
         <div class="about-summary-card" style="background:#fff; border-radius:18px; box-shadow:0 4px 24px 0 rgba(96,125,139,0.08); padding:32px; margin-bottom:32px;">
@@ -129,19 +119,21 @@
     </div>
   </section>
   <script>
-// Projects dropdown interactive behavior (click to open/close, closes on outside click)
+// Custom dropdown logic for new header
 (function() {
-  var dropdown = document.querySelector('.nav-dropdown');
-  var toggle = document.querySelector('.nav-dropdown-toggle');
-  var list = document.querySelector('.nav-dropdown-list');
+  var dropdown = document.querySelector('.about-header__dropdown');
+  var toggle = document.querySelector('.about-header__dropdown-toggle');
+  var list = document.querySelector('.about-header__dropdown-list');
   var isOpen = false;
   if (dropdown && toggle && list) {
     function openDropdown() {
       list.style.display = 'block';
+      toggle.setAttribute('aria-expanded', 'true');
       isOpen = true;
     }
     function closeDropdown() {
       list.style.display = 'none';
+      toggle.setAttribute('aria-expanded', 'false');
       isOpen = false;
     }
     toggle.addEventListener('click', function(e) {
