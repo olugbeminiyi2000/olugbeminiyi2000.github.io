@@ -112,11 +112,12 @@ body {
   margin-left: 6px;
   transition: transform 0.2s;
 }
+
 .about-header__dropdown-toggle[aria-expanded="true"] .about-header__chevron {
   transform: rotate(180deg);
 }
-.about-header__dropdown-list {
-  display: none;
+
+.about-header__dropdown-list {display: none;
   position: absolute;
   top: 110%;
   right: 0;
@@ -129,6 +130,7 @@ body {
   flex-direction: column;
   gap: 0;
 }
+
 .about-header__dropdown-link {
   display: block;
   padding: 10px 18px;
@@ -139,6 +141,7 @@ body {
   border-radius: 6px;
   transition: background 0.2s;
 }
+
 .about-header__dropdown-link:hover,
 .about-header__dropdown-link:focus {
   background: #f5f7fa;
